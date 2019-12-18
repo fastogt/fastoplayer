@@ -1,0 +1,9 @@
+1.0.0 / December 17, 2019
+[Alexandr Topilski]
+- Cleanup resources
+- Active listbox
+- Parent window
+- Fix sound Up/Down
+- FFmpeg hwaccels
+- Config file
+- Media library

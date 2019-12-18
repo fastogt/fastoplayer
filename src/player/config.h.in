@@ -1,0 +1,28 @@
+/*  Copyright (C) 2014-2019 FastoGT. All right reserved.
+
+    This file is part of FastoTV.
+
+    FastoTV is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FastoTV is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FastoTV. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#pragma once
+
+#define PLAYER_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define PLAYER_VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define PLAYER_VERSION_PATCH @PROJECT_VERSION_PATCH@
+#define PLAYER_VERSION_TWEAK @PROJECT_VERSION_TWEAK@
+#define PLAYER_VERSION_BUILD_TYPE "@PROJECT_BUILD_TYPE_VERSION@"
+#define PLAYER_VERSION_GIT "@PROJECT_VERSION_GIT@"
+#define PLAYER_VERSION_STRING "@PROJECT_VERSION@"
+#define PLAYER_VERSION_HUMAN "@PROJECT_VERSION_HUMAN@"
