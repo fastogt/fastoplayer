@@ -1,4 +1,4 @@
-/*  Copyright (C) 2014-2019 FastoGT. All right reserved.
+/*  Copyright (C) 2014-2020 FastoGT. All right reserved.
 
     This file is part of FastoTV.
 
@@ -65,7 +65,7 @@ class IFrameDecoder : public Decoder {
 class AudioDecoder : public IFrameDecoder {
  public:
   AudioDecoder(AVCodecContext* avctx, PacketQueue* queue);
-  virtual int DecodeFrame(AVFrame* frame) override;
+  virtual int DecodeFrame(AVFrame* frame);
 
   void SetStartPts(int64_t start_pts, AVRational start_pts_tb);
 
