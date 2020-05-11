@@ -203,7 +203,7 @@ int get_buffer(AVCodecContext* s, AVFrame* frame, int flags) {
 }
 }  // namespace
 
-VideoState::VideoState(stream_id id, const common::uri::Url& uri, const AppOptions& opt, const ComplexOptions& copt)
+VideoState::VideoState(stream_id id, const common::uri::GURL& uri, const AppOptions& opt, const ComplexOptions& copt)
     : id_(id),
       uri_(uri),
       opt_(opt),
@@ -734,7 +734,7 @@ stream_id VideoState::GetId() const {
   return id_;
 }
 
-const common::uri::Url& VideoState::GetUri() const {
+const common::uri::GURL& VideoState::GetUri() const {
   return uri_;
 }
 

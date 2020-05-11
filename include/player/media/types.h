@@ -20,7 +20,7 @@
 
 #include <common/media/types.h>
 #include <common/types.h>  // for time64_t
-#include <common/uri/url.h>
+#include <common/uri/gurl.h>
 
 #include <common/bounded_value.h>
 
@@ -63,7 +63,7 @@ typedef clock64_t pts_t;
 pts_t invalid_pts();
 bool IsValidPts(pts_t pts);
 
-std::string make_url(const common::uri::Url& uri);
+std::string make_url(const common::uri::GURL& uri);
 
 enum AvSyncType {
   AV_SYNC_AUDIO_MASTER, /* default choice */

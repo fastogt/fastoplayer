@@ -70,13 +70,12 @@ int64_t get_valid_channel_layout(int64_t channel_layout, int channels) {
   return 0;
 }
 
-std::string make_url(const common::uri::Url& uri) {
-  if (uri.GetScheme() == common::uri::Url::file) {
-    common::uri::Upath upath = uri.GetPath();
-    return upath.GetPath();
+std::string make_url(const common::uri::GURL& uri) {
+  if (uri.SchemeIsFile()) {
+    return uri.PathForRequest();
   }
 
-  return uri.GetUrl();
+  return uri.spec();
 }
 
 pts_t invalid_pts() {

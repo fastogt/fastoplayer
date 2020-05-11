@@ -24,7 +24,7 @@
 #include <SDL2/SDL_ttf.h>  // for TTF_Font
 
 #include <common/file_system/path.h>
-#include <common/uri/url.h>
+#include <common/uri/gurl.h>
 
 #include <player/gui/events/events.h>  // for PostExecEvent, PreExe...
 #include <player/gui/events/key_events.h>
@@ -91,7 +91,7 @@ class ISimplePlayer : public StreamHandler, public gui::events::EventListener {
   PlayerOptions GetOptions() const;
 
   virtual void SetUrlLocation(media::stream_id sid,
-                              const common::uri::Url& uri,
+                              const common::uri::GURL& uri,
                               media::AppOptions opt,
                               media::ComplexOptions copt);
 
@@ -153,7 +153,7 @@ class ISimplePlayer : public StreamHandler, public gui::events::EventListener {
   bool IsMouseVisible() const;
 
   virtual media::VideoState* CreateStream(media::stream_id sid,
-                                          const common::uri::Url& uri,
+                                          const common::uri::GURL& uri,
                                           media::AppOptions opt,
                                           media::ComplexOptions copt);
   void SetStream(media::VideoState* stream);  // if stream == nullptr => SwitchToChannelErrorMode

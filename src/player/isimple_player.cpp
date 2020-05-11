@@ -152,7 +152,7 @@ PlayerOptions ISimplePlayer::GetOptions() const {
 }
 
 void ISimplePlayer::SetUrlLocation(media::stream_id sid,
-                                   const common::uri::Url& uri,
+                                   const common::uri::GURL& uri,
                                    media::AppOptions opt,
                                    media::ComplexOptions copt) {
   media::VideoState* stream = CreateStream(sid, uri, opt, copt);
@@ -849,10 +849,10 @@ void ISimplePlayer::SetStream(media::VideoState* stream) {
 }
 
 media::VideoState* ISimplePlayer::CreateStream(media::stream_id sid,
-                                               const common::uri::Url& uri,
+                                               const common::uri::GURL& uri,
                                                media::AppOptions opt,
                                                media::ComplexOptions copt) {
-  if (!uri.IsValid()) {
+  if (!uri.is_valid()) {
     return nullptr;
   }
 
