@@ -256,8 +256,8 @@ common::Error ISimplePlayer::HandleRequestVideo(media::VideoState* stream,
   }
 
   SDL_Rect rect = CalculateDisplayRect(xleft_, ytop_, INT_MAX, height, width, height, aspect_ratio);
-  options_.default_size.width = rect.w;
-  options_.default_size.height = rect.h;
+  options_.default_size.set_width(rect.w);
+  options_.default_size.set_height(rect.h);
 
   InitWindow(GetCurrentUrlName(), PLAYING_STATE);
 
@@ -649,7 +649,7 @@ void ISimplePlayer::DrawPlayingStatus() {
   err = draw::FlushRender(renderer_, draw::black_color);
   DCHECK(!err) << err->GetDescription();
 
-  SDL_Rect rect = CalculateDisplayRect(xleft_, ytop_, window_size_.width, window_size_.height, frame->width,
+  SDL_Rect rect = CalculateDisplayRect(xleft_, ytop_, window_size_.width(), window_size_.height(), frame->width,
                                        frame->height, frame->sar);
   SDL_RenderCopyEx(renderer_, texture, nullptr, &rect, 0, nullptr, flip_v ? SDL_FLIP_VERTICAL : SDL_FLIP_NONE);
 
@@ -691,7 +691,7 @@ SDL_Rect ISimplePlayer::GetDrawRect() const {
 
 SDL_Rect ISimplePlayer::GetDisplayRect() const {
   const common::draw::Size display_size = window_size_;
-  return {0, 0, display_size.width, display_size.height};
+  return {0, 0, display_size.width(), display_size.height()};
 }
 
 void ISimplePlayer::DrawStatistic() {
@@ -803,11 +803,11 @@ void ISimplePlayer::SetStatus(States new_state) {
 }
 
 void ISimplePlayer::CalculateDispalySize() {
-  if (window_size_.IsValid()) {
+  if (!window_size_.IsEmpty()) {
     return;
   }
 
-  if (options_.screen_size.IsValid()) {
+  if (!options_.screen_size.IsEmpty()) {
     window_size_ = options_.screen_size;
   } else {
     window_size_ = options_.default_size;

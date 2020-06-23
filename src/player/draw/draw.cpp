@@ -35,7 +35,7 @@ common::Error CreateMainWindow(const common::draw::Size& size,
                                const std::string& title,
                                SDL_Renderer** renderer,
                                SDL_Window** window) {
-  if (!renderer || !window || !size.IsValid()) {  // invalid input
+  if (!renderer || !window || size.IsEmpty()) {  // invalid input
     return common::make_error_inval();
   }
 
@@ -49,7 +49,7 @@ common::Error CreateMainWindow(const common::draw::Size& size,
   }
 
   SDL_Window* lwindow =
-      SDL_CreateWindow(nullptr, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, size.width, size.height, flags);
+      SDL_CreateWindow(nullptr, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, size.width(), size.height(), flags);
   SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
   SDL_Renderer* lrenderer = nullptr;
   if (lwindow) {
@@ -93,7 +93,7 @@ common::Error CreateMainWindow(const common::draw::Size& size,
   }
 
   SDL_SetRenderDrawBlendMode(lrenderer, SDL_BLENDMODE_BLEND);
-  SDL_SetWindowSize(lwindow, size.width, size.height);
+  SDL_SetWindowSize(lwindow, size.width(), size.height());
   SDL_SetWindowTitle(lwindow, title.c_str());
   SDL_ShowWindow(lwindow);
 

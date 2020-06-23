@@ -199,8 +199,8 @@ bool Window::IsCanDraw() const {
 }
 
 bool Window::IsSizeEnough() const {
-  if (min_size_.IsValid()) {
-    if (min_size_.height > rect_.h || min_size_.width > rect_.w) {
+  if (!min_size_.IsEmpty()) {
+    if (min_size_.height() > rect_.h || min_size_.width() > rect_.w) {
       return false;
     }
   }
