@@ -23,7 +23,7 @@
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>  // for SDL_Renderer, SDL_Texture
 
-#include <common/draw/types.h>
+#include <common/draw/size.h>
 #include <common/error.h>
 
 #include <player/draw/types.h>

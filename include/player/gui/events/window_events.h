@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include <common/draw/types.h>
+#include <common/draw/size.h>
 
 #include <player/draw/types.h>
 #include <player/gui/events_base.h>
