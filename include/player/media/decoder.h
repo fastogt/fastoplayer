@@ -65,7 +65,7 @@ class IFrameDecoder : public Decoder {
 class AudioDecoder : public IFrameDecoder {
  public:
   AudioDecoder(AVCodecContext* avctx, PacketQueue* queue);
-  virtual int DecodeFrame(AVFrame* frame);
+  int DecodeFrame(AVFrame* frame) override;
 
   void SetStartPts(int64_t start_pts, AVRational start_pts_tb);
 
