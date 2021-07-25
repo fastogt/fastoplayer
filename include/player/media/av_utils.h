@@ -76,7 +76,7 @@ AVDictionary* filter_codec_opts(AVDictionary* opts,
                                 enum AVCodecID codec_id,
                                 AVFormatContext* s,
                                 AVStream* st,
-                                AVCodec* codec);
+                                const AVCodec* codec);
 
 /**
  * Setup AVCodecContext options for avformat_find_stream_info().

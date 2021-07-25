@@ -303,7 +303,7 @@ int VideoState::StreamComponentOpen(int stream_index) {
   const char* forced_codec_name = nullptr;
   AVCodecParameters* par = stream->codecpar;
   enum AVCodecID codec_id = par->codec_id;
-  AVCodec* codec = avcodec_find_decoder(codec_id);
+  const AVCodec* codec = avcodec_find_decoder(codec_id);
 
   if (par->codec_type == AVMEDIA_TYPE_VIDEO) {
     last_video_stream_ = stream_index;
@@ -379,7 +379,7 @@ int VideoState::StreamComponentOpen(int stream_index) {
   }
 
   if (avctx->codec_type == AVMEDIA_TYPE_VIDEO) {
-    ret = hw_device_setup_for_decode(avctx, codec);
+    ret = hw_device_setup_for_decode(avctx, const_cast<AVCodec*>(codec));
     if (ret < 0) {
 #if EXIT_LOOKUP_IF_HWACCEL_FAILED
       avcodec_free_context(&avctx);

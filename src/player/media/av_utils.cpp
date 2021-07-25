@@ -168,15 +168,16 @@ AVDictionary* filter_codec_opts(AVDictionary* opts,
                                 enum AVCodecID codec_id,
                                 AVFormatContext* s,
                                 AVStream* st,
-                                AVCodec* codec) {
+                                const AVCodec* codec) {
   AVDictionary* ret = nullptr;
   AVDictionaryEntry* t = nullptr;
   int flags = s->oformat ? AV_OPT_FLAG_ENCODING_PARAM : AV_OPT_FLAG_DECODING_PARAM;
   char prefix = 0;
   const AVClass* cc = avcodec_get_class();
 
-  if (!codec)
+  if (!codec) {
     codec = s->oformat ? avcodec_find_encoder(codec_id) : avcodec_find_decoder(codec_id);
+  }
 
   switch (st->codecpar->codec_type) {
     case AVMEDIA_TYPE_VIDEO:
@@ -217,8 +218,9 @@ AVDictionary* filter_codec_opts(AVDictionary* opts,
       }
     }
 
+    AVClass* priv = const_cast<AVClass*>(codec->priv_class);
     if (av_opt_find(&cc, t->key, nullptr, flags, AV_OPT_SEARCH_FAKE_OBJ) || !codec ||
-        (codec->priv_class && av_opt_find(&codec->priv_class, t->key, nullptr, flags, AV_OPT_SEARCH_FAKE_OBJ))) {
+        (codec->priv_class && av_opt_find(priv, t->key, nullptr, flags, AV_OPT_SEARCH_FAKE_OBJ))) {
       av_dict_set(&ret, t->key, t->value, 0);
     } else if (t->key[0] == prefix && av_opt_find(&cc, t->key + 1, nullptr, flags, AV_OPT_SEARCH_FAKE_OBJ)) {
       av_dict_set(&ret, t->key + 1, t->value, 0);
