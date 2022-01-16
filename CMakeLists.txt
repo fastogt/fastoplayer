@@ -8,19 +8,19 @@ SET(CMAKE_C_STANDARD_REQUIRED ON)
 #SET(CMAKE_C_EXTENSIONS OFF)
 
 SET(PROJECT_NAME_TITLE ${PROJECT_NAME} CACHE STRING "Title for ${PROJECT_NAME}")
-SET(PROJECT_DOMAIN "www.fastogt.com" CACHE STRING "Internet domain name for ${PROJECT_NAME}")
+SET(PROJECT_DOMAIN "fastogt.com" CACHE STRING "Internet domain name for ${PROJECT_NAME}")
 SET(PROJECT_COMPANYNAME "FastoGT" CACHE STRING "Company name for ${PROJECT_NAME}")
-SET(PROJECT_COPYRIGHT "Copyright (C) 2014-2020 ${PROJECT_COMPANYNAME}. All Rights Reserved.")
-SET(PROJECT_COMPANYNAME_DOMAIN "www.fastogt.com" CACHE STRING "Internet domain name for ${PROJECT_NAME}")
+SET(PROJECT_COPYRIGHT "Copyright (C) 2014-2022 ${PROJECT_COMPANYNAME}. All Rights Reserved.")
+SET(PROJECT_COMPANYNAME_DOMAIN "fastogt.com" CACHE STRING "Internet domain name for ${PROJECT_NAME}")
 SET(PROJECT_MAINTAINER_MAIL "atopilski@fastogt.com" CACHE STRING "Internet mail address for ${PROJECT_NAME} mainteiner")
 SET(PROJECT_MAINTAINER_NAME "Alexandr Topilski" CACHE STRING "Name of ${PROJECT_NAME} mainteiner")
-SET(PROJECT_GITHUB_FORK "www.github.com/fastogt/fastoplayer" CACHE STRING "Git fork of ${PROJECT_NAME}")
-SET(PROJECT_GITHUB_ISSUES "www.github.com/fastogt/fastoplayer/issues" CACHE STRING "Git issue link for ${PROJECT_NAME}")
+SET(PROJECT_GITHUB_FORK "github.com/fastogt/fastoplayer" CACHE STRING "Git fork of ${PROJECT_NAME}")
+SET(PROJECT_GITHUB_ISSUES "github.com/fastogt/fastoplayer/issues" CACHE STRING "Git issue link for ${PROJECT_NAME}")
 SET(PROJECT_BUILD_TYPE_VERSION "release") #alfa, beta, rc, release
 
 SET(PROJECT_SUMMARY "Cross-platform open source player." CACHE STRING "Short description of ${PROJECT_NAME}")
 SET(PROJECT_DESCRIPTION "${PROJECT_NAME} it is tv player." CACHE STRING "Description of ${PROJECT_NAME}")
-SET(PROJECT_COPYRIGHT "Copyright (C) 2014-2020 ${PROJECT_COMPANYNAME} All Rights Reserved." CACHE STRING "Copyright notice for ${PROJECT_NAME}") #default
+SET(PROJECT_COPYRIGHT "Copyright (C) 2014-2022 ${PROJECT_COMPANYNAME} All Rights Reserved." CACHE STRING "Copyright notice for ${PROJECT_NAME}") #default
 SET(PROJECT_CHANGELOG_FILE CHANGELOG CACHE STRING "Branding for changelog file ${PROJECT_NAME} (File name given as relative paths are interpreted with respect to the src source directory)") #default
 
 SET(PROJECT_CHANGELOG_FILE ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/CHANGELOG)
