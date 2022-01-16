@@ -22,6 +22,7 @@ extern "C" {
 #include <libavutil/display.h>
 #include <libavutil/eval.h>
 #include <libavutil/opt.h>
+#include <libavcodec/avcodec.h>
 }
 
 #include <common/macros.h>
